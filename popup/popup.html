@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YouTube Arabic Font Fixer</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="header panel">
+        <h1 class="title-en" dir="ltr">YouTube Arabic Font Fixer</h1>
+        <p class="title-ar" dir="rtl">مصحح خط عربي ليوتيوب</p>
+      </header>
+
+      <main class="main panel">
+        <label class="row row-check">
+          <input type="checkbox" id="enabled" />
+          <span class="label-pair">
+            <span class="label-en" dir="ltr">Enable extension</span>
+            <span class="label-ar" dir="rtl">تفعيل الإضافة</span>
+          </span>
+        </label>
+
+        <label class="row row-check">
+          <input type="checkbox" id="arabicOnly" />
+          <span class="label-pair">
+            <span class="label-en" dir="ltr">Arabic text only mode</span>
+            <span class="label-ar" dir="rtl">تطبيق على النص العربي فقط</span>
+          </span>
+        </label>
+
+        <section class="field">
+          <div class="label-pair label-block">
+            <span class="label-en">Apply on sections</span>
+            <span class="label-ar" dir="rtl">تطبيق على الأقسام</span>
+          </div>
+          <div class="targets-grid">
+            <label><input type="checkbox" id="targetTitles" /> Titles</label>
+            <label><input type="checkbox" id="targetDescriptions" /> Description</label>
+            <label><input type="checkbox" id="targetComments" /> Comments</label>
+            <label><input type="checkbox" id="targetCaptions" /> Captions</label>
+          </div>
+        </section>
+
+        <div class="field">
+          <div class="label-pair label-block">
+            <span class="label-en">Font family</span>
+            <span class="label-ar" dir="rtl">عائلة الخط</span>
+          </div>
+          <select id="fontFamily" class="control"></select>
+        </div>
+
+        <div class="field">
+          <div class="label-pair label-block">
+            <span class="label-en">Custom font-family (advanced)</span>
+            <span class="label-ar" dir="rtl">خط مخصص (متقدم)</span>
+          </div>
+          <input id="customFontFamily" class="control" type="text" placeholder="'Amiri', 'Noto Naskh Arabic', serif" />
+        </div>
+
+        <div class="field">
+          <div class="label-pair label-block">
+            <span class="label-en">Font size</span>
+            <span class="label-ar" dir="rtl">حجم الخط</span>
+          </div>
+          <div class="slider-row">
+            <input type="range" id="fontSize" min="12" max="32" step="1" class="control" />
+            <span id="fontSizeValue" class="value-badge" aria-live="polite">16px</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="label-pair label-block">
+            <span class="label-en">Font weight</span>
+            <span class="label-ar" dir="rtl">سمك الخط</span>
+          </div>
+          <select id="fontWeight" class="control"></select>
+        </div>
+
+        <div class="field">
+          <div class="label-pair label-block">
+            <span class="label-en">Line height</span>
+            <span class="label-ar" dir="rtl">ارتفاع السطر</span>
+          </div>
+          <select id="lineHeight" class="control"></select>
+        </div>
+
+        <div class="field">
+          <div class="label-pair label-block">
+            <span class="label-en">Preview mode</span>
+            <span class="label-ar" dir="rtl">وضع المعاينة</span>
+          </div>
+          <select id="previewMode" class="control">
+            <option value="after">Styled only</option>
+            <option value="beforeAfter">Before / After</option>
+          </select>
+        </div>
+
+        <section class="preview-section panel-soft">
+          <div class="label-pair label-block preview-heading">
+            <span class="label-en">Preview</span>
+            <span class="label-ar" dir="rtl">معاينة</span>
+          </div>
+          <p id="previewBefore" class="preview-text preview-before" dir="rtl">
+            هذا مثال على النص العربي في يوتيوب
+          </p>
+          <p id="previewAfter" class="preview-text preview-after" dir="rtl">
+            هذا مثال على النص العربي في يوتيوب
+          </p>
+        </section>
+
+        <div class="action-row">
+          <button type="button" id="applyNow" class="btn-secondary">Apply to open tabs now</button>
+          <button type="button" id="exportSettings" class="btn-secondary">Export</button>
+          <label class="btn-secondary btn-file">
+            Import
+            <input id="importSettings" type="file" accept="application/json" hidden />
+          </label>
+        </div>
+        <p id="statusText" class="status-text" aria-live="polite"></p>
+
+        <button type="button" id="reset" class="btn-reset">Reset to defaults / إعادة الضبط</button>
+      </main>
+
+      <footer class="footer panel">
+        <p class="help" dir="ltr">
+          Settings save automatically and sync to open YouTube tabs. If a tab does not update,
+          refresh once.
+        </p>
+        <p class="help help-ar" dir="rtl">
+          تُحفظ الإعدادات تلقائياً وتُطبّق على تبويبات يوتيوب المفتوحة. إن لم يتغير التبويب، حدّثه مرة واحدة.
+        </p>
+      </footer>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
