@@ -2,7 +2,7 @@
 
 Firefox extension (**Manifest V2**) that improves **Arabic readability on YouTube** by letting you control **font family**, **size** (12–32px), **weight**, and **line height**. Settings are stored locally and applied on `youtube.com` via a content script that injects CSS.
 
-**Open source** — contributions, issues, and forks are welcome.
+**Open source*: contributions, issues, and forks are welcome.
 
 ## Contents
 
@@ -103,25 +103,6 @@ When published, install the signed add-on from [Firefox Add-ons](https://addons.
 - After editing files, reload the add-on on `about:debugging` or use **Reload** on the temporary extension card.
 
 To verify messaging: open two YouTube tabs, change settings, confirm both update (or refresh a tab if the content script was not yet injected).
-
-## Troubleshooting
-
-| Issue | What to try |
-|--------|-------------|
-| Nothing changes | Extension enabled in the popup; URL is under `youtube.com`. Reload the tab. |
-| Only some text changes | Much of YouTube lives in **Shadow DOM**; document-level CSS cannot style every node. |
-| Styles flicker | SPA updates the DOM; the extension reapplies on navigation/mutations. Use “Apply to open tabs now” or refresh if needed. |
-| Tab did not update | New tab may not have injected the script yet — reload once. |
-| Imported file rejected | Confirm the file is valid JSON using this extension’s exported schema. |
-
-## Publishing
-
-1. [Firefox Add-ons Developer Hub](https://addons.mozilla.org/developers/) — sign in with a Firefox Account.
-2. Zip the extension so **`manifest.json` is at the root** of the archive.
-3. Submit source as required; this project needs **no** minification or build notes unless you change that.
-4. Match your **license** and **privacy story** to what you declare on AMO.
-
-See [Extension Workshop — Publish](https://extensionworkshop.com/documentation/publish/) for the full flow.
 
 ## Contributing
 
